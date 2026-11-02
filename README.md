@@ -34,7 +34,9 @@ Shared files: `styles.css` (design), `main.js` (animations and interactions), `l
 - **WhatsApp number:** find and replace `60122326372` in all `.html` files and in `main.js`.
 - **Timetable / registration links:** every class "Register" button links to the GymMaster portal (`epssportsacademy.gymmasteronline.com/portal/membership/...`). Timetables appear in `football.html`, `swimming.html` and `enrol.html`, so update all three.
 - **Next holiday camp:** in `holiday-camp.html`, search for `UPDATE EACH SEASON` and change the heading, dates and the two registration links.
-- **Videos:** videos play from Google Drive. Each video button has `data-video="FILE_ID"`. To swap a video, paste a different Drive file ID. The Drive file must be shared as *Anyone with the link → Viewer*.
+- **Landing-page video loops:** `clip-football.mp4`, `clip-swimming.mp4` and `clip-camp.mp4` are short, silent loops (under 1 MB each) that autoplay in the three panels at the top of the home page. `clip-*.jpg` are their cover frames. To swap one, replace the file with a short portrait MP4 (H.264, no sound, ideally under 2 MB) and keep the same file name.
+- **Intro animation:** plays once per browser session (the first page a visitor opens), then is skipped as they move around the site. Visitors can tap "Skip intro". It never plays for people who have "reduce motion" switched on.
+- **Videos:** the "Watch highlights" buttons and all other videos play from Google Drive. Each video button has `data-video="FILE_ID"`. To swap a video, paste a different Drive file ID. The Drive file must be shared as *Anyone with the link → Viewer*.
 - **Domain:** `canonical` tags, `sitemap.xml` and `robots.txt` use `https://epsacademy.com.my`. If the domain is different, find and replace it.
 
 ## Confirm with the client before launch
