@@ -1,0 +1,23 @@
+# Cloudflare Pages redirects (read automatically). Old links keep working.
+
+# Pages merged in the multi-page redesign
+/about            /#story        301
+/about.html       /#story        301
+/football         /cca#football  301
+/football.html    /cca#football  301
+/swimming         /cca#swimming  301
+/swimming.html    /cca#swimming  301
+/enrol            /cca#join      301
+/enrol.html       /cca#join      301
+
+# Addresses from the old WordPress site (epsacademy.com.my)
+/about-us/        /#story        301
+/eps-soccer/      /cca#football  301
+/eps-swimming/    /cca#swimming  301
+/eps-holiday-camp/ /holiday-camp 301
+/holiday-camp/    /holiday-camp  301
+/trial-class/     /cca#join      301
+/enroll-now/      /cca#join      301
+/career/          /careers       301
+/locations/       /contact       301
+/contacts/        /contact       301

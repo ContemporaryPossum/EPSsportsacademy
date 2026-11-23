@@ -730,12 +730,49 @@
         "",
         "Parent: " + v("parent"),
         "Child's age: " + v("age"),
-        "Programme: " + v("programme"),
-        "Preferred venue: " + v("venue")
+        "Programme: " + v("programme")
       ];
       if (v("message")) lines.push("", v("message"));
       var url = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(lines.join("\n"));
       window.open(url, "_blank", "noopener");
+    });
+  }
+
+  /* ---------- Careers: role buttons + application -> email ---------- */
+  var CAREERS_EMAIL = "operations@epsacademy.com";
+  var careerForm = $("#career-form");
+  if (careerForm) {
+    $$("[data-apply-role]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var select = careerForm.elements.role;
+        if (select) select.value = btn.getAttribute("data-apply-role");
+        setTimeout(function () { var n = careerForm.elements.name; if (n) n.focus({ preventScroll: true }); }, 700);
+      });
+    });
+    careerForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!careerForm.reportValidity()) return;
+      var v = function (n) { var f = careerForm.elements[n]; return f ? f.value.trim() : ""; };
+      var lines = [
+        "Hi EPS Sports Academy team,",
+        "",
+        "I'd like to apply for: " + v("role") + (v("sport") ? " (" + v("sport") + ")" : ""),
+        "",
+        "Name: " + v("name"),
+        "Email: " + v("email"),
+        "Phone / WhatsApp: " + v("phone"),
+        "Experience: " + v("experience")
+      ];
+      if (v("qualifications")) lines.push("Qualifications: " + v("qualifications"));
+      if (v("link")) lines.push("LinkedIn / portfolio: " + v("link"));
+      lines.push("", "Why EPS:", v("about"), "", "My CV is attached.", "", "Thank you,", v("name"));
+      var subject = "Job application: " + v("role") + " - " + v("name");
+      window.location.href = "mailto:" + CAREERS_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+      var status = $(".form-status", careerForm);
+      if (status) {
+        status.textContent = "Your email app should now be open with your application. Don't forget to attach your CV before sending! If nothing opened, email us at " + CAREERS_EMAIL + ".";
+        status.classList.add("is-shown");
+      }
     });
   }
 })();
